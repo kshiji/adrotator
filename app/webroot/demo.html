@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="/adrotator/js/adrotator.js"></script>
+        <style>
+            body { 
+                background: #222; 
+                font-family: "Trebuchet Ms", "Frutiger Linotype", Helvetica, Verdana, sans-serif;
+            }
+            
+            h1,h2 {
+                padding:10px 0px;
+            }
+            
+            #header {
+                background: #ffa500;
+                color: #fff;
+            }
+            
+            #header h1 {
+                padding-left: 10px;
+            }
+            
+            #container {
+                background: #fff;
+                width: 900px;
+                margin: 0px auto;
+            }
+            
+            #content {
+                width:600px;
+                float:left;
+                clear:right;
+                padding: 10px 20px;
+                border-right: 1px solid #ccc;
+            }
+            
+            #adverts {
+                float: left;
+                clear:right;
+                padding:10px 20px;
+            }
+            
+            #adverts .campaign {
+                width:205px;
+                clear:both;
+                border: 1px dotted #ccc;
+                margin-bottom: 10px;
+            }
+            
+            #adverts .campaign img {
+                width: 200px;
+            }
+            
+            #smallads {
+                background: #ffffcc;
+            }
+            
+            #smallads .campaign {
+                float:left;
+                clear:right;
+                width: 50px;
+            }
+            
+            .clear { clear: both; }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1>This Is A Header</h1>
+            </div>
+            <div id="content">
+                <h2>Did you know?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue enim, ornare in suscipit eu, rhoncus sed dolor. Cras quam velit, facilisis ut volutpat ac, pretium a tortor. Fusce accumsan sollicitudin consequat. Donec bibendum felis eget nisl tristique ut hendrerit ipsum congue. Sed posuere, dui vel dapibus varius, justo tellus aliquet augue, tempor bibendum magna magna vitae lectus. Quisque non nisl felis. Duis aliquet hendrerit venenatis. Curabitur imperdiet hendrerit mi, ac fermentum ligula hendrerit eget. Fusce interdum blandit purus id elementum. Proin sit amet tellus et mi bibendum adipiscing. Praesent consequat ipsum lacinia lacus volutpat pulvinar. Phasellus id nunc ante, ut pharetra ligula.</p>
+            
+                <div id="smallads">
+                    <h3>Tiny Ads</h3>
+                </div>
+                
+                <p>Mauris sed ipsum at purus rhoncus fermentum. Phasellus condimentum felis a risus volutpat vel sagittis sem egestas. Vestibulum nec felis et turpis gravida condimentum. Integer eu sem leo. Ut ipsum ligula, aliquam nec fringilla et, dignissim sit amet felis. Curabitur sodales, arcu in lacinia gravida, magna massa adipiscing tortor, eu sollicitudin mauris quam ultricies ante. Cras tempus rhoncus massa et commodo. Morbi non ipsum sit amet risus sollicitudin pretium nec dictum enim. Sed dictum placerat mi, vitae posuere libero pretium quis. Donec eget lacus ligula. Nullam cursus facilisis felis sit amet aliquam. Mauris mattis sagittis suscipit. Nulla est ante, tristique dignissim dapibus sed, auctor non dolor. Donec metus ante, pellentesque id sollicitudin in, viverra sit amet eros. Morbi eleifend tortor ac lectus posuere at consectetur nunc faucibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p>Nam mi tellus, tincidunt ac rutrum sed, condimentum at tortor. Duis scelerisque molestie tristique. Pellentesque iaculis, ante in ornare tempus, mi enim vestibulum turpis, ac accumsan nibh mi vel mauris. Aenean eu sodales felis. Aenean congue lacus non nisi imperdiet quis vehicula felis facilisis. Etiam ac varius dolor. In hac habitasse platea dictumst. Praesent in sem in lectus porta tempus. Donec at velit mauris, non luctus massa. Proin consectetur purus ac justo ullamcorper eu commodo massa accumsan. Etiam nec arcu quam, dictum luctus justo. Mauris vel velit nibh. Etiam sagittis pharetra lectus eget ultricies. Integer feugiat sem id nisi pulvinar molestie. Aenean vulputate eros id ligula lobortis eget auctor mi dignissim. Phasellus eros est, viverra nec pellentesque quis, aliquam sit amet turpis. Aenean commodo tristique eros sit amet lobortis.</p>
+                <p>Aliquam erat volutpat. Sed ipsum ligula, sollicitudin placerat dignissim ut, egestas quis metus. Quisque quis imperdiet ipsum. Aenean scelerisque, tortor eget luctus varius, arcu leo porttitor est, non lobortis odio augue laoreet lacus. Quisque ac tellus ac turpis rhoncus tincidunt pharetra tempus augue. Fusce blandit congue eros, sed pulvinar justo commodo ut. Nullam sit amet massa sed sapien ultrices imperdiet a vitae dolor. Vivamus auctor ligula sed lorem eleifend pharetra. Nulla facilisi. Morbi egestas tempor vehicula. Cras sed ligula vel purus mattis blandit at ac diam. Integer luctus arcu a ipsum accumsan eget vestibulum eros venenatis. Curabitur mattis ultricies ipsum in interdum. Vestibulum vel nisl orci, ut lacinia eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus orci neque, laoreet eu porta sit amet, faucibus a justo. Etiam vitae dui a elit vehicula aliquam.</p>
+            </div>
+
+            <div id="adverts">
+                <h2>Advertisements</h2>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <script>
+           $(document).ready(function() {
+           
+                $("#smallads").adrotator({
+                    limit: 10,
+                    size: "icon",
+                    captions: true
+                });
+           
+                $("#adverts").adrotator({
+                    limit: 5,    
+                    captions:true
+                    });
+           });
+        </script>
+    </body>
+</html>
