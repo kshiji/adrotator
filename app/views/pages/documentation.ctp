@@ -111,8 +111,11 @@ echo htmlspecialchars($htmlOut);
             url :  "/adrotator/campaigns/display", 
             target: "_blank",
             captions: false,
-            limit: 4,
-            size: "medium"    
+            limit: 5,
+            size: "medium",
+            rotate: true,
+            rotateSeconds: 30,
+            columns: 1
         };
         
     $("#advertisements").adrotator(options);
@@ -156,6 +159,20 @@ echo htmlspecialchars($htmlOut);
             <p>
             <strong>** Note:  you can manually scale the images by applying css to the &lt;img&gt; tag.</strong>
             </p>
+        </td>
+    </tr>
+    <tr>
+        <td>rotate</td>
+        <td>When set to true, adverts rotate in the page, without a refresh</td>
+    </tr>
+    <tr>
+        <td>rotateSeconds</td>
+        <td>Number of seconds before reloading new advertisements</td>
+    </tr>
+    <tr>
+        <td>columns</td>
+        <td>Number of columns adverts are displayed in. <br/>
+            E.g. limit 16 + columns 4 - will get you 4 rows of 4 adverts
         </td>
     </tr>
 </table>

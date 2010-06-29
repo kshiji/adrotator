@@ -35,6 +35,12 @@
                 border-right: 1px solid #ccc;
             }
             
+            pre { background: #ccc; border: 1px dashed #333;}
+            
+            .clear { clear: both; }            
+            
+            /** style for advertisements */
+            
             #adverts {
                 float: left;
                 clear:right;
@@ -54,15 +60,18 @@
             
             #smallads {
                 background: #ffffcc;
+                width:auto;
             }
             
             #smallads .campaign {
                 float:left;
                 clear:right;
-                width: 50px;
+                margin:10px;
+                padding:10px;
+                border: 1px solid red;
             }
             
-            .clear { clear: both; }
+       
         </style>
     </head>
     <body>
@@ -71,37 +80,60 @@
                 <h1>This Is A Header</h1>
             </div>
             <div id="content">
-                <h2>Did you know?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue enim, ornare in suscipit eu, rhoncus sed dolor. Cras quam velit, facilisis ut volutpat ac, pretium a tortor. Fusce accumsan sollicitudin consequat. Donec bibendum felis eget nisl tristique ut hendrerit ipsum congue. Sed posuere, dui vel dapibus varius, justo tellus aliquet augue, tempor bibendum magna magna vitae lectus. Quisque non nisl felis. Duis aliquet hendrerit venenatis. Curabitur imperdiet hendrerit mi, ac fermentum ligula hendrerit eget. Fusce interdum blandit purus id elementum. Proin sit amet tellus et mi bibendum adipiscing. Praesent consequat ipsum lacinia lacus volutpat pulvinar. Phasellus id nunc ante, ut pharetra ligula.</p>
-            
-                <div id="smallads">
-                    <h3>Tiny Ads</h3>
-                </div>
                 
+                <h2>Demo Page</h2>
+
                 <p>Mauris sed ipsum at purus rhoncus fermentum. Phasellus condimentum felis a risus volutpat vel sagittis sem egestas. Vestibulum nec felis et turpis gravida condimentum. Integer eu sem leo. Ut ipsum ligula, aliquam nec fringilla et, dignissim sit amet felis. Curabitur sodales, arcu in lacinia gravida, magna massa adipiscing tortor, eu sollicitudin mauris quam ultricies ante. Cras tempus rhoncus massa et commodo. Morbi non ipsum sit amet risus sollicitudin pretium nec dictum enim. Sed dictum placerat mi, vitae posuere libero pretium quis. Donec eget lacus ligula. Nullam cursus facilisis felis sit amet aliquam. Mauris mattis sagittis suscipit. Nulla est ante, tristique dignissim dapibus sed, auctor non dolor. Donec metus ante, pellentesque id sollicitudin in, viverra sit amet eros. Morbi eleifend tortor ac lectus posuere at consectetur nunc faucibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <p>Nam mi tellus, tincidunt ac rutrum sed, condimentum at tortor. Duis scelerisque molestie tristique. Pellentesque iaculis, ante in ornare tempus, mi enim vestibulum turpis, ac accumsan nibh mi vel mauris. Aenean eu sodales felis. Aenean congue lacus non nisi imperdiet quis vehicula felis facilisis. Etiam ac varius dolor. In hac habitasse platea dictumst. Praesent in sem in lectus porta tempus. Donec at velit mauris, non luctus massa. Proin consectetur purus ac justo ullamcorper eu commodo massa accumsan. Etiam nec arcu quam, dictum luctus justo. Mauris vel velit nibh. Etiam sagittis pharetra lectus eget ultricies. Integer feugiat sem id nisi pulvinar molestie. Aenean vulputate eros id ligula lobortis eget auctor mi dignissim. Phasellus eros est, viverra nec pellentesque quis, aliquam sit amet turpis. Aenean commodo tristique eros sit amet lobortis.</p>
-                <p>Aliquam erat volutpat. Sed ipsum ligula, sollicitudin placerat dignissim ut, egestas quis metus. Quisque quis imperdiet ipsum. Aenean scelerisque, tortor eget luctus varius, arcu leo porttitor est, non lobortis odio augue laoreet lacus. Quisque ac tellus ac turpis rhoncus tincidunt pharetra tempus augue. Fusce blandit congue eros, sed pulvinar justo commodo ut. Nullam sit amet massa sed sapien ultrices imperdiet a vitae dolor. Vivamus auctor ligula sed lorem eleifend pharetra. Nulla facilisi. Morbi egestas tempor vehicula. Cras sed ligula vel purus mattis blandit at ac diam. Integer luctus arcu a ipsum accumsan eget vestibulum eros venenatis. Curabitur mattis ultricies ipsum in interdum. Vestibulum vel nisl orci, ut lacinia eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus orci neque, laoreet eu porta sit amet, faucibus a justo. Etiam vitae dui a elit vehicula aliquam.</p>
-            </div>
+        
+                <h2>Small Adverts</h2>
+                    <div id="smallads">
+                </div>            
+
+                <h3>Javascript for this page</h3>
+                
+                <pre id="show-js">
+
+    $(document).ready(function() {
+    
+        $("#smallads").adrotator({
+            limit: 8,
+            size: "small",
+            captions: false,
+            rotate: true,
+            rotateSeconds: 10,
+            columns: 4
+        });
+    
+        $("#adverts").adrotator({
+            captions:true,
+            rotate: true,
+            rotateSeconds: 3
+            });
+    });
+    
+                </pre>                
+       </div>
 
             <div id="adverts">
-                <h2>Advertisements</h2>
+
             </div>
             
             <div class="clear"></div>
         </div>
         <script>
            $(document).ready(function() {
-           
+
                 $("#smallads").adrotator({
-                    limit: 10,
-                    size: "icon",
-                    captions: true
-                });
+                    limit: 8,
+                    size: "small",
+                    captions: false,
+                    rotate: false,
+                    columns: 4
+                    });
            
                 $("#adverts").adrotator({
-                    limit: 5,    
-                    captions:true
-                    });
+                    rotateSeconds: 3
+                });
            });
         </script>
     </body>

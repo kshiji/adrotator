@@ -2,6 +2,8 @@
 class CampaignsController extends AppController {
 
 	var $name = 'Campaigns';
+	
+	var $uses = array("Campaign", "Sponsor");
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -25,6 +27,8 @@ class CampaignsController extends AppController {
         {
             $size = $this->params["named"]["size"];
         }
+        
+
         
         
         $data = $this->Campaign->find('all', array(
@@ -55,16 +59,48 @@ class CampaignsController extends AppController {
 		$this->set('campaign', $this->Campaign->read(null, $id));
 	}
 
-	function add() {
-		if (!empty($this->data)) {
+	function add($sponsor_id = null) 
+	{
+	    $isNewSponsor = false;
+		if (!empty($this->data)) 
+		{	
 			$this->Campaign->create();
-			if ($this->Campaign->save($this->data)) {
+
+			if(is_null($sponsor_id) && $this->data["Campaign"]["is_new_sponsor"] == "yes")
+			{
+			    $isNewSponsor = true;
+			}
+			unset($this->data["Campaign"]["is_new_sponsor"]);	
+			
+			if($isNewSponsor) 
+			{
+     			unset($this->data["Campaign"]["sponsor_id"]);	
+     			unset($this->Campaign->validate["sponsor_id"]);			    
+			} 
+			else 
+			{	
+	            unset($this->data["Sponsor"]);
+			}
+
+			if ($this->Campaign->saveAll($this->data, array('validate'=>"first"))) 
+			{
 				$this->Session->setFlash(__('The campaign has been saved', true));
 				$this->redirect(array('action' => 'index'));
-			} else {
+			} 
+			else 
+			{
 				$this->Session->setFlash(__('The campaign could not be saved. Please, try again.', true));
 			}
+		
 		}
+        
+        if($isNewSponsor) {
+            $this->data["Campaign"]["is_new_sponsor"] = "yes";
+        } else {
+            $this->data["Campaign"]["is_new_sponsor"] = "no";
+            $this->data["Campaign"]["sponsor_id"] = $sponsor_id;            
+        }
+		
 		$sponsors = $this->Campaign->Sponsor->find('list');
 		$this->set(compact('sponsors'));
 	}

@@ -27,7 +27,7 @@
 	</div>
 	<div class="grid_2">
 	    <div class="actions">
-            <?php echo $this->Html->link(__('New Campaign', true), array('controller' => 'campaigns', 'action' => 'add'));?> </li>
+            <?php echo $this->Html->link(__('New Campaign', true), array('controller' => 'campaigns', 'action' => 'add', $sponsor["Sponsor"]["id"]));?> </li>
 	    </div>
 	</div>
 	<div class="clear"></div>

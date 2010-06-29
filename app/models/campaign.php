@@ -28,14 +28,11 @@ class Campaign extends AppModel {
 			),
 		),
 		'image' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		    'extension' => array(
+    	        'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),
+                'message' => 'Please supply a valid image.',
+	    		'on' => 'create', // Limit validation to 'create' or 'update' operations
+			)
 		),
 		'link' => array(
 			'notempty' => array(

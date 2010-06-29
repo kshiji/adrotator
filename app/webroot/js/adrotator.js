@@ -26,54 +26,102 @@
 *    }
 * ]        
 **/
-(function($)
+jQuery.fn.adrotator = function(options)
 {
-    $.fn.adrotator = function(options)
-    {
-        var $el = $(this);
+        var $el = jQuery(this);
     
         var defaultOptions = {
             url :  "/adrotator/campaigns/display", 
             target: "_blank",
             captions: false,
-            limit: 4,
-            size: "medium"    
+            limit: 5,
+            size: "medium",
+            rotate: true,
+            rotateSeconds: 30,
+            columns: 1
         };
         
-        var config = $.extend({},defaultOptions, options);
-            
-        var endpoint = config.url + "/limit:" + config.limit + "/size:" + config.size;
-            
-        $.getJSON(endpoint, function(data) 
-        {
-            $.each(data, function(i,item) 
-            {
-               
-                var $outer = $("<div></div>").addClass("campaign");
-                
-                var $img = $("<img/>").attr("src", item.path);
-                
-                var $link = $("<a/>").attr("href", item.link).attr("target", config.target);
-                
-                if(config.captions) {
-                    $link.attr('title',item.caption);
-                }
-                
-                $link.append($img);
-                $outer.append($link);
-                $el.append($outer);
-            });
-            
-            var $clear = $("<div></div>").css('clear','both');
-            $el.append($clear);
-        });
+        var config = jQuery.extend(defaultOptions,options);
         
-        
-        
-        return $el;
-    };
+        jQuery.fn.adrotator.load(config,$el);
     
-})(jQuery);
-            
+        var interval = (config.rotateSeconds * 1000);
+        
+        if(config.rotate) {
+            setInterval(
+                function() {           
+                    jQuery.fn.adrotator.reload(config,$el);
+                },
+                interval
+            );
+        }
 
-            
+        return $el;
+};
+
+jQuery.fn.adrotator.load = function(config, $el) 
+{
+    var endpoint = config.url + "/limit:" + config.limit + "/size:" + config.size;
+
+    jQuery.getJSON(endpoint, function(data) 
+    {
+        jQuery.fn.adrotator.buildCampaigns(config, $el, data);
+    });
+    
+    return $el;
+}
+
+jQuery.fn.adrotator.reload = function (config, $el) 
+{
+   
+    var endpoint = config.url + "/limit:" + config.limit + "/size:" + config.size;
+
+    jQuery.getJSON(endpoint, function(data) 
+    {
+            $el.fadeOut(300, function() 
+            {
+                jQuery.fn.adrotator.buildCampaigns(config, $el, data);
+            });
+    });
+
+    return $el;
+};
+
+jQuery.fn.adrotator.buildCampaigns = function(config, $el, data) 
+{
+
+    $el.find(".campaign").remove();
+
+    var counter = 1;
+
+    jQuery.each(data, function(i,item) 
+    {
+        
+        var $campaign = jQuery("<div></div>").addClass("campaign");
+        
+        var $img = jQuery("<img/>").attr("src", item.path);
+        
+        var $link = jQuery("<a/>").attr("href", item.link).attr("target", config.target);
+        
+        if(config.captions) {
+            $link.attr('title',item.caption);
+        }
+        
+        $link.append($img);
+        
+        $campaign.append($link).appendTo($el);
+        
+        if(config.columns > 0) {
+            if((counter % config.columns) == 0) {
+                console.log("new row on" + counter)
+                $el.append($("<div></div>").css('clear','both'));   
+            }
+        }
+        counter++;
+    });
+                
+    $el.append($("<div></div>").css('clear','both'));        
+    $el.fadeIn(300);
+
+};
+

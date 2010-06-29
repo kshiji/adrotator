@@ -342,6 +342,9 @@ input[type=submit] {
 	font-size: 110%;
 	width: auto;
 }
+
+
+button,
 form .submit input[type=submit] {
 	background:#62af56;
 	background: -webkit-gradient(linear, left top, left bottom, from(#a8ea9c), to(#62af56));
@@ -350,6 +353,7 @@ form .submit input[type=submit] {
 	color: #000;
 	text-shadow: #8cee7c 0px 1px 0px;
 }
+button:hover,
 form .submit input[type=submit]:hover {
 	background:#4ca83d;
 	background: -webkit-gradient(linear, left top, left bottom, from(#85e573), to(#4ca83d));
@@ -412,6 +416,7 @@ div.actions {
     text-align:right;
 }
 
+button,
 input[type=submit],
 div.actions a,
 td.actions a {
@@ -429,6 +434,8 @@ td.actions a {
 	text-shadow: #fff 0px 1px 0px;
 	min-width: 0;
 }
+
+button:hover,
 input[type=submit]:hover,
 div.actions  a:hover,
 td.actions a:hover {
