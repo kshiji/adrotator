@@ -31,7 +31,7 @@ CREATE TABLE `campaigns` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `campaigns` (
 
 LOCK TABLES `campaigns` WRITE;
 /*!40000 ALTER TABLE `campaigns` DISABLE KEYS */;
-INSERT INTO `campaigns` VALUES (8,1,'The Staunch Fist Of Slack','bob-0.jpg','http://bob.com/click/?foo=bar&bat=baz&omg=wtf','2010-06-26 19:05:32','2010-06-27 11:13:21'),(15,1,'The new iPhone is here.','new_iphone.jpg','http://palm.com','2010-06-27 03:44:44','2010-06-27 03:44:44'),(16,4,'Watch Treme on HBO','New_Orleans_Saints_Logo.gif','http://hbo.com','2010-06-27 03:45:26','2010-06-27 03:45:26'),(12,1,'llamas are half off!','farms005650.jpg','http://llama.com','2010-06-26 20:49:32','2010-06-26 20:49:32'),(13,2,'More llamas','Ashdown_Llama_Park.jpg','http://pandora.com','2010-06-26 23:56:07','2010-06-26 23:56:07'),(14,3,'he\'s on a cake','imonacake.jpg','http://cakephp.org','2010-06-26 23:57:46','2010-06-26 23:57:46');
+INSERT INTO `campaigns` VALUES (12,1,'llamas are half off!','farms005650-0.jpg','http://llama.com','2010-06-26 20:49:32','2010-06-29 15:50:02'),(29,27,'','corporate_sponsorship_thanks_ad.jpg','#','2010-06-29 15:40:10','2010-06-29 15:40:10'),(28,26,'','WMET.gif','http://site.com','2010-06-29 15:38:52','2010-06-29 15:38:52'),(26,19,'','Paschal_Lamb_Ad.jpg','http://paschallamb.org','2010-06-29 15:37:01','2010-06-29 15:37:01'),(27,25,'','ICC_summer_program_220x240.gif','http://thomasmore.edu','2010-06-29 15:37:52','2010-06-29 15:37:52'),(20,16,'Breathe Catholic','BreatheCatholic_AD3.gif','http://christendom.edu/','2010-06-29 14:15:48','2010-06-29 14:15:48'),(21,17,'Children of Mary','Children_of_Mary_AD.jpg','http://childrenofmary.com','2010-06-29 14:17:06','2010-06-29 14:17:32'),(24,24,'In Tyler We Trust','intylerwetrust.jpg','http://www.urbandictionary.com/define.php?term=I%20am%20Jack\'s','2010-06-29 15:28:51','2010-06-29 15:28:51');
 /*!40000 ALTER TABLE `campaigns` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `sponsors` (
   `company_name` varchar(255) NOT NULL,
   `contact_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `sponsors` (
 
 LOCK TABLES `sponsors` WRITE;
 /*!40000 ALTER TABLE `sponsors` DISABLE KEYS */;
-INSERT INTO `sponsors` VALUES (1,'Acme Corp','Bob Dobbs'),(2,'OMG Enterprises','Lolbob Smith'),(3,'Spacely Sprockets','Mister Spacely'),(4,'ASDF Corp','asdf asdf'),(5,'ZXCVZ inc.','asdf asdf'),(6,'asdf','asdf'),(7,'qwerqwerqwerqwe','rqwerqwerqwe'),(8,'qwre','qwerqwerqwer');
+INSERT INTO `sponsors` VALUES (1,'Acme Corp','Bob Dobbs'),(2,'OMG Enterprises','Lolbob Smith'),(3,'Spacely Sprockets','Mister Spacely'),(4,'ASDF Corp','asdf asdf'),(5,'ZXCVZ inc.','asdf asdf'),(16,'Christendom College',''),(17,'Children of Mary',''),(18,'Thomas Aquinas College',''),(19,'The Paschal Lamb',''),(20,'Lighthouse Catholic Media',''),(23,'Test Sponsor',''),(24,'Paper Street Soap Company',''),(25,'Thomas More College',''),(26,'Guadelupe Radio Network',''),(27,'Catholic Culture Corporate Sponsors','');
 /*!40000 ALTER TABLE `sponsors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-06-27 18:29:56
+-- Dump completed on 2010-06-30 12:48:18
