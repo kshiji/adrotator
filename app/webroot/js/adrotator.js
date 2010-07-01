@@ -35,7 +35,7 @@ jQuery.fn.adrotator = function(options)
             target: "_blank",
             captions: false,
             limit: 5,
-            size: "medium",
+            size: "image",
             rotate: true,
             rotateSeconds: 30,
             columns: 1

@@ -21,7 +21,8 @@ class CampaignsController extends AppController {
             $limit = $this->params["named"]["limit"];
         }
         
-        $size = "medium";
+        $size = "image";
+        
         
         if(isset($this->params["named"]["size"]))
         {
