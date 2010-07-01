@@ -113,7 +113,7 @@ jQuery.fn.adrotator.buildCampaigns = function(config, $el, data)
         
         if(config.columns > 0) {
             if((counter % config.columns) == 0) {
-                console.log("new row on" + counter)
+
                 $el.append($("<div></div>").css('clear','both'));   
             }
         }
@@ -124,4 +124,6 @@ jQuery.fn.adrotator.buildCampaigns = function(config, $el, data)
     $el.fadeIn(300);
 
 };
+
+
 
