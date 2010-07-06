@@ -45,6 +45,10 @@ class CampaignsController extends AppController {
         
         $this->set('campaigns', $campaigns);
         $this->set("size", $size);
+        
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+        header('Content-type: application/json');
     }
 
 	function index() {

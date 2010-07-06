@@ -61,12 +61,13 @@ jQuery.fn.adrotator = function(options)
 
 jQuery.fn.adrotator.load = function(config, $el) 
 {
+   // tstamp = new Date().getDate() or some shit
     var endpoint = config.url + "/limit:" + config.limit + "/size:" + config.size;
 
-    jQuery.getJSON(endpoint, function(data) 
+    jQuery.ajax({ url: endpoint, dataType: 'json', cache: false, success: function(data)  
     {
         jQuery.fn.adrotator.buildCampaigns(config, $el, data);
-    });
+    }});
     
     return $el;
 }
@@ -76,13 +77,13 @@ jQuery.fn.adrotator.reload = function (config, $el)
    
     var endpoint = config.url + "/limit:" + config.limit + "/size:" + config.size;
 
-    jQuery.getJSON(endpoint, function(data) 
+    jQuery.ajax({ url: endpoint, dataType: 'json', cache: false, success: function(data)  
     {
             $el.fadeOut(300, function() 
             {
                 jQuery.fn.adrotator.buildCampaigns(config, $el, data);
             });
-    });
+    }});
 
     return $el;
 };
