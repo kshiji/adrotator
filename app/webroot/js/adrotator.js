@@ -1,31 +1,3 @@
-/**
-* Ad Rotator plugin
-* @author fred.isaacs@gmail.com
-* 
-* Expects JSON format: 
-* [
-*    {
-*        "id":"8",
-*        "sponsor_id":"1",
-*        "caption":"bobs face",
-*        "image":"bob-0.jpg",
-*        "link":"http:\/\/bob.com",
-*        "created":"2010-06-26 19:05:32",
-*        "modified":"2010-06-26 19:34:07",
-*        "path":"\/adrotator\/uploads\/campaign\/image\/thumb\/medium\/bob-0.jpg"
-*    },
-*    {
-*        "id":"12",
-*        "sponsor_id":"1",
-*        "caption":"llamas are half off!",
-*        "image":"farms005650.jpg",
-*        "link":"http:\/\/llama.com",
-*        "created":"2010-06-26 20:49:32",
-*        "modified":"2010-06-26 20:49:32",
-*        "path":"\/adrotator\/uploads\/campaign\/image\/thumb\/medium\/farms005650.jpg"
-*    }
-* ]        
-**/
 jQuery.fn.adrotator = function(options)
 {
         var $el = jQuery(this);
@@ -125,6 +97,6 @@ jQuery.fn.adrotator.buildCampaigns = function(config, $el, data)
     $el.fadeIn(300);
 
 };
-
+-->
 
 
